@@ -169,8 +169,8 @@ void setup()
 
   // The default transmitter power is 13dBm, using PA_BOOST.
   // If you are using RFM95/96/97/98 modules which uses the PA_BOOST transmitter pin, then
-  // you can set transmitter powers from 5 to 23 dBm:
-  rf95.setTxPower(23, false);
+  // you can set transmitter powers from 5 to 20 dBm:
+  rf95.setTxPower(20, false);
   
   //For measuring the aboveground hub battery voltage///
   measuredvbat = analogRead(VBATPIN);
@@ -226,7 +226,7 @@ void loop()
       else { // the last Rx data packet (packet #4 in our case) doesn't need an identifier at the beginning of the data packet
         // Send a reply
         ////////if no reply is needed you can comment from here////////
-        uint8_t data[] = "2"; // this value will change the Tx power of the underground node (range between 5 and 23 dBm) or set a new sleeping interval between two measurements(1-1 minute, 2-60 minutes, 3-120 minutes, 4-240 minutes)
+        uint8_t data[] = "2"; // this value will change the Tx power of the underground node (range between 5 and 20 dBm) or set a new sleeping interval between two measurements(1-1 minute, 2-60 minutes, 3-120 minutes, 4-240 minutes)
         rf95.send(data, sizeof(data));
         rf95.waitPacketSent();
         Serial.println("Sent a reply");
