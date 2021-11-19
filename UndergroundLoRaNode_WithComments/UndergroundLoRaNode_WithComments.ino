@@ -1,6 +1,7 @@
 // This is the code for the underground node, which is part of an  underground, wireless, open-source, low-cost system for monitoring oxygen, temperature, and soil moisture
 // By Elad Levintal, The University of California, Davis
 // Basic troubleshooting when working with the Adafruit Feather M0: double-click on the RST button to get back into the bootloader (e.g., if the Adafruit Feather M0 is not connecting to the computer because it is in sleep mode)
+// For additional SDI-12 protocol information -> sdi-12.org
 
 #include <Wire.h>
 #include <SPI.h>
@@ -103,7 +104,7 @@ RH_RF95 rf95(RFM95_CS, RFM95_INT);
 
   // The default transmitter power is 13dBm, using PA_BOOST.
   // If you are using RFM95/96/97/98 modules which uses the PA_BOOST transmitter pin, then 
-  // you can set transmitter powers from 5 to 23 dBm:
+  // you can set transmitter powers from 5 to 20 dBm:
 int TxPower = 5; // set transmitter power to 5 dBm
 ////
 
@@ -141,7 +142,7 @@ void setup() {
 
   // The default transmitter power is 13dBm, using PA_BOOST.
   // If you are using RFM95/96/97/98 modules which uses the PA_BOOST transmitter pin, then 
-  // you can set transmitter powers from 5 to 23 dBm:
+  // you can set transmitter powers from 5 to 20 dBm:
   rf95.setTxPower(TxPower, false);
   ////
 
